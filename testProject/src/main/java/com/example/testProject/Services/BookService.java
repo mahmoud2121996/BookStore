@@ -14,5 +14,5 @@ public interface BookService {
 
 	public Book updateBook(Book updatedBook, Long Id);
 
-	public void deleteBook(Long id);
+	public boolean deleteBook(Long id);
 }
