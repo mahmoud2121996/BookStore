@@ -31,7 +31,7 @@ function NewBookForm(props) {
                 }
             );
             if (response.status === 201) {
-                props.history.push('/Books');
+                props.history.push('/books');
             }
         } catch (error) {
             if (error.response.status === 400) {
@@ -45,7 +45,7 @@ function NewBookForm(props) {
 
             {errorMessageObj && <div className="alert alert-danger" role="alert">
                 <ul>
-                    {errorMessageObj.map((error,index) => <li key={index}>{error}</li>)}
+                    {errorMessageObj.map((error, index) => <li key={index}>{error}</li>)}
                 </ul>
             </div>
             }

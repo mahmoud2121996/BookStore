@@ -27,7 +27,7 @@ public class BookController {
 	private BookService bookService;
 
 	@RequestMapping(path = "", method = RequestMethod.GET)
-	public List<Book> getAllBook() {
+	public List<Book> getAllBooks() {
 		return bookService.getAllBooks();
 	}
 
@@ -56,7 +56,7 @@ public class BookController {
 	}
 
 	@RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<HttpStatus> UpdateBook(@PathVariable Long id) {
+	public ResponseEntity<HttpStatus> deleteBook(@PathVariable Long id) {
 		boolean result = bookService.deleteBook(id);
 		if (result == true) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);

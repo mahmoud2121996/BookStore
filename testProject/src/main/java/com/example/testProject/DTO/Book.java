@@ -24,6 +24,17 @@ public class Book {
 	@Min(value = 200, message = "Book Pages Must Be Atleast 200 Pages")
 	int pages;
 
+	public Book() {
+	}
+
+	public Book(@NotBlank(message = "Book Name is Required") String bookName,
+			@NotBlank(message = "Author Name is Required") String authorName,
+			@NotNull(message = "Book Pages is Required") @Min(value = 200, message = "Book Pages Must Be Atleast 200 Pages") int pages) {
+		this.bookName = bookName;
+		this.authorName = authorName;
+		this.pages = pages;
+	}
+
 	public Long getId() {
 		return id;
 	}

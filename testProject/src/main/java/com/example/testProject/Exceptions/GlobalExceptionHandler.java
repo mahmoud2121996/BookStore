@@ -3,6 +3,7 @@ package com.example.testProject.Exceptions;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -33,5 +34,12 @@ public class GlobalExceptionHandler {
 		});
 
 		return new ValidationErrorResponse("validation error...", HttpStatus.BAD_REQUEST.value(), errors);
+	}
+
+	@ExceptionHandler(AuthenticationException.class)
+	@ResponseStatus(code = HttpStatus.UNAUTHORIZED)
+	@ResponseBody
+	public CustomResponse handleAuthException(AuthenticationException exception) {
+		return new CustomResponse("username or password is invalid...", HttpStatus.UNAUTHORIZED.value());
 	}
 }

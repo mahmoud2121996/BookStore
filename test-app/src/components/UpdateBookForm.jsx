@@ -31,7 +31,7 @@ function NewBookForm(props) {
                 }
             );
             if (response.status === 200) {
-                props.history.push('/Books');
+                props.history.push('/books');
             }
         } catch (error) {
             if (error.response.status === 400) {
@@ -51,7 +51,7 @@ function NewBookForm(props) {
             }
 
         } catch (error) {
-
+            console.log("error is : ", error);
         }
     }
 
